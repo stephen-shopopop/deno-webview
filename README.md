@@ -1,15 +1,12 @@
-[![Minimal deno version](https://img.shields.io/static/v1?label=deno&message=%3E=1.27.0.0&color)](https://deno.land/manual@v1.23.4/getting_started)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/stephen-shopopop/deno-template/graphs/commit-activity)
+[![Minimal deno version](https://img.shields.io/static/v1?label=deno&message=%3E=1.27.0.0&color)](https://deno.land/manual@v1.27.0/getting_started)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/stephen-shopopop/deno-webview/graphs/commit-activity)
 [![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
 [![macOS](https://svgshare.com/i/ZjP.svg)](https://svgshare.com/i/ZjP.svg)
 [![Visual Studio Code](https://img.shields.io/badge/--007ACC?logo=visual%20studio%20code&logoColor=ffffff)](https://code.visualstudio.com/)
 
-# deno template
+# deno webview
 
 [Installation deno](https://deno.land/#installation)
-
-- [Documentation](https://doc.deno.land/https://raw.githubusercontent.com/stephen-shopopop/deno-template/main/mod.ts)
-- [cheat code](https://oscarotero.com/deno/?utm_source=denonews&utm_medium=email)
 
 ## Usage
 
