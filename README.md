@@ -7,6 +7,7 @@
 # deno webview
 
 [Installation deno](https://deno.land/#installation)
+[webview](https://deno.land/x/webview@0.7.5)
 
 ## Usage
 
