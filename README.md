@@ -6,8 +6,8 @@
 
 # deno webview
 
-[Installation deno](https://deno.land/#installation)
-[webview](https://deno.land/x/webview@0.7.5)
+- [Installation deno](https://deno.land/#installation)
+- [webview](https://deno.land/x/webview@0.7.5)
 
 ## Usage
 
@@ -36,13 +36,3 @@ deno run --allow-env --allow-run mod.ts
 6. make check // linter & check formatter
 7. make inspect // inspect with chrome
 ```
-
-## VSCODE addons
-
-All configuration for VsCode: autofix, debugger, etc...
-
-[deno for vscode](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno)
-
-## Documentation generator
-
-[Deno doc](https://doc.deno.land)
