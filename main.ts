@@ -2,11 +2,6 @@ import { Webview } from "webview";
 
 const html = `
   <html>
-  <style>
-  body {
-    background: gray
-  }
-  </style>
   <body>
     <h1>Hello from deno v${Deno.version.deno}</h1>
     <footer>I am hungry</footer>
@@ -14,7 +9,7 @@ const html = `
   </html>
 `;
 
-const webview = new Webview();
+const webview = new Webview(Deno.args.includes("debug"));
 
 webview.navigate(`data:text/html,${encodeURIComponent(html)}`);
 webview.title = "Broz";
