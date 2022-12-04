@@ -4,24 +4,24 @@ VERSION		 ?= $(shell cat $(PWD)/.version 2> /dev/null || echo v0)
 
 # Deno commands
 DENO    = deno
-BUNDLE  = $(DENO) bundle
 RUN     = $(DENO) run
 TEST    = $(DENO) test
 FMT     = $(DENO) fmt
 LINT    = $(DENO) lint
-BUILD   = $(DENO) compile
 DEPS    = $(DENO) info
 DOCS    = $(DENO) doc main.ts --json
 INSPECT = $(DENO) run --inspect-brk
 
-DENOVERSION = 1.28.1
+DENOVERSION = 1.28.3
 
-.PHONY: help clean deno-install install deno-version deno-upgrade check fmt dev env test bundle build inspect doc all release
+.PHONY: help clean deno-install install deno-version deno-upgrade check fmt dev env test inspect doc all release
 
 default: help
 
 # show this help
 help:
+	@make env
+	@echo ''
 	@echo 'usage: make [target] ...'
 	@echo ''
 	@echo 'targets:'
@@ -32,53 +32,42 @@ env: ## environment project
 	@echo $(NAME)
 	@echo $(VERSION)
 
-deno-install: ## install deno version and dependencies
-	$(DENO) upgrade --version $(DENOVERSION)
+deno-install: ## install deno version
+	@$(DENO) upgrade --version $(DENOVERSION)
 
 deno-version: ## deno version
-	$(DENO) --version
+	@$(DENO) --version
 
 deno-upgrade: ## deno upgrade
-	$(DENO) upgrade
+	@$(DENO) upgrade
 
 check: ## deno check files
-	$(DEPS)
-	$(FMT) --check
-	$(LINT) --unstable
+	@$(DEPS)
+	@$(FMT) --check
+	@$(LINT) --unstable
 
 fmt: ## deno format files
-	$(FMT)
+	@$(FMT)
 
 dev: ## deno run dev maine
-	$(RUN) --allow-all --unstable --watch main.ts 
+	@$(RUN) --allow-all --unstable --watch main.ts 
 
 test: ## deno run test
-	$(TEST) --coverage=cov_profile
+	@$(TEST) --coverage=cov_profile
 
 install:
-	$(DENO) install .
-
-bundle: ## deno build bundle
-	$(BUNDLE) main.ts mainule.bundle.js
+	@$(DENO) install .
 	
 clean: ## clean bundle and binary
-	rm -f mainule.bundle.js
+	rm -f main.bundle.js
 	rm -fr bin
-
-build: ## deno build binary
-	rm -f bin/*
-	$(BUILD) --output=bin/${NAME} -A --unstable main.ts
-	$(BUILD) --output=bin/${NAME}.exe --target=x86_64-pc-windows-msvc -A --unstable main.ts
-	$(BUILD) --output=bin/${NAME}_x86_64 --target=x86_64-unknown-linux-gnu -A --unstable main.ts
-	$(BUILD) --output=bin/${NAME}_darwin_x86_64 --target=x86_64-apple-darwin -A --unstable main.ts
-	$(BUILD) --output=bin/${NAME}_darwin_aarch64 --target=x86_64-apple-darwin -A --unstable main.ts
 
 inspect: ## deno inspect 
 	@echo "Open chrome & chrome://inspect"
 	$(INSPECT) --allow-all --unstable main.ts
 
 doc: ## deno doc
-	$(DOCS) > docs.json
+	@$(DOCS) > docs.json
   
 release:
 	git tag $(VERSION)

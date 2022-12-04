@@ -6,8 +6,7 @@
     "check": "deno task lint && deno task fmt:check",
     "fmt:check": "deno fmt --check",
     "fmt": "deno fmt",
-    "lint": "deno lint --unstable",
-    "fileserver": "deno run --allow-read --allow-net https://deno.land/std@0.136.0/http/file_server.ts ."
+    "lint": "deno lint --unstable"
   },
   "importMap": "./import_map.json"
 }
